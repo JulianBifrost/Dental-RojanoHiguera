@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="Bifrost4®" content="">
+
+    <title>Consultorio Dental</title>
+    <link rel="icon" href="resources/images/tooth.ico" type="image/png" size="16x16">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Light Box -->
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    
+    <!-- Animate -->
+    <link rel="stylesheet" href="css/animate.css">
+
+
+    <style type="text/css">
+    
+      /*Estilos de la barra scrollbar*/
+      html::-webkit-scrollbar{
+        /*overflow-y:hidden;*/
+        width: 3px;
+      }
+      html::-webkit-scrollbar-thumb{
+        background-color: #007bff;
+        border-radius: 5px;
+      }
+
+      /*--------------------------*/
+      .welcome-text{
+        min-height: 100vh;
+        background-image: url(resources/images/back.jpg);
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+      }
+
+      .fondo-h{
+        background-color: rgba(0,0,0,.7);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .content-image{
+        overflow: hidden;
+      }
+
+      .content-image img{
+        transition: all 0.7s;
+        transition-timing-function: cubic-bezier(.66,-0.25,.4,1.48);
+      }
+
+      .content-image img:hover{
+        filter: grayscale(.3) sepia(.1);
+        transform:  scale(1.4) ;
+      }
+
+      .modal-header{
+        background-color:rgba(70, 130, 180,0.8);
+      }
+
+      .modal-body, .modal-footer{
+        background-color: rgba(0,0,0,0.7);
+        color: white;
+      }
+
+      .back-header{
+        background-image: url(http://plazaalamar.com.mx/wp-content/uploads/2014/12/L3-1B0H7249.jpg);
+        color: white;
+        background-size: cover;
+        background-position: center; 
+      }
+
+      .back-body{
+        background-image: url(resources/images/back-2.jpg);
+      }
+    
+      #about{
+        color: white;
+        padding: 0px;
+      }
+      #about h2{
+        text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+      }
+      #about .lead{
+        font-weight: 400;
+        text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+      }
+
+      .parallax-window-about{
+        min-height: 100vh;
+        text-align: right;
+        display: flex;
+        align-items: center; 
+      }
+
+      #services{
+        /*background-image: url(resources/images/background2.jpg);
+        background-size: cover;
+        background-position: center;*/
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+        position: relative;
+      }
+      #service-r{
+        position: absolute;
+        top: 10%;
+        left: -2%;
+        filter: opacity(0.45);
+      }
+
+      #gallery-c{
+        padding-top: 20px;
+        /*background-image: url(resources/images/background2.jpg);
+        background-size: cover;
+        background-position: center;
+        clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 100%);*/
+      }
+      
+      #directions .container .row .copyright{
+        margin-top: 30px;
+
+      }
+      /*icons*/
+      .fah , .far{
+        font-size: 5rem;
+        color: #007bff;
+        margin-bottom: 15px;
+      }
+
+      .fanav{
+        margin-left: 10px;
+        transition: all .5s;
+      }
+      .fanav:hover{
+        transform: scale(1.5) translateY(-2px);
+      }
+
+      /*Navbar*/
+      .navbar-nav{
+        align-items: center;
+      }
+
+      .navbar-toggler {
+        border: none;
+        background: transparent !important;
+      }
+
+      .navbar-toggler:focus {
+        outline: none;
+        background: transparent !important;
+      }
+
+      .navbar-toggler .icon-bar {
+        background-color: #fff;
+        transform: rotate(0deg) translate(0px, 0px);
+        transition: ease all .2s;
+      }
+
+      .navbar-toggler .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+      }
+
+      .navbar-toggler .icon-bar+.icon-bar {
+        margin-top: 4px;
+      }
+
+      .icon-bar:nth-child(2) {
+        width: 16px;
+        transition: ease all .2s;
+      }
+
+      .navbar-toggler:hover>.icon-bar:nth-child(2) {
+        width: 22px;
+        transition: ease all .2s;
+      }
+
+      .navbar-toggler:active>.icon-bar:nth-child(2) {
+        width: 22px;
+        transition: ease all .2s;
+      }
+
+      .navbar-toggler:not(.collapsed) .icon-bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 4px);
+        transition: ease all .2s;
+      }
+
+      .navbar-toggler:not(.collapsed) .icon-bar:nth-child(2) {
+        opacity: 0;
+        transition: ease all .2s;
+      }
+
+      .navbar-toggler:not(.collapsed) .icon-bar:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px);
+        transition: ease all .2s;
+      }
+      /*footer*/
+      .directions{
+        color: white;
+      }
+      .directions h4{
+        margin-bottom: 10px;
+      }
+
+      .fa-tel:hover{
+        text-decoration: none;
+      }
+      
+      .fa-whatsapp-footer{
+        font-size: 1.5rem;
+      }
+
+      iframe {
+       width: 100%;
+       height: 300px;
+       border: none;
+      }
+
+      /*Media Querys*/
+      @media only screen and (max-width: 990px) {
+        .fanav{
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+      }
+      
+
+      /*Estilos para la Galeria Responsive*/
+      .row-galery {
+          display: -ms-flexbox; /* IE10 */
+          display: flex;
+          -ms-flex-wrap: wrap; /* IE10 */
+          flex-wrap: wrap;
+          /*padding: 0 4px;*/
+      }
+
+      /* Create four equal columns that sits next to each other */
+      .column-galery {
+          -ms-flex: 25%; /* IE10 */
+          flex: 25%;
+          max-width: 25%;
+          /*padding: 0 4px;*/
+      }
+
+      .column-galery a img {
+          /*margin-top: 8px;*/
+          vertical-align: middle;
+      }
+
+      /* Responsive layout - makes a two column-layout instead of four columns */
+      @media screen and (max-width: 800px) {
+          .column-galery {
+              -ms-flex: 50%;
+              flex: 50%;
+              max-width: 50%;
+          }
+      }
+      /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+          .column-galery {
+              -ms-flex: 100%;
+              flex: 100%;
+              max-width: 100%;
+          }
+      }
+    </style>
+  </head>
+
+  <body id="page-top">
+    <!--Modal de Citas-->
+    <div class="modal fade citas-modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="back-header">
+        <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel"><i class="fas fa-stethoscope"></i> Datos del Paciente</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>  
+        </div>
+       </div>
+       <div class="back-body">
+         <div class="modal-body">
+            <div class="row">
+             <div class="col-md-10 offset-md-1 order-md-1">
+            <form class="needs-validation" novalidate>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName">Nombre</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName">Apellido</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid last name is required.
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2 mb-3">
+                  <label for="username">Sexo</label>
+                  <div class="custom-control custom-radio">
+                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                    <label class="custom-control-label" for="credit">Masculino</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="debit">Femenino</label>
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label for="username">Edad</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="username" placeholder="15" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                      Your username is required.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="country">Tipo de sangre</label>
+                  <select class="custom-select d-block w-100" id="country" required>
+                    <option value="">O-</option>
+                    <option value="">O+</option>
+                    <option value="">A-</option>
+                    <option value="">A+</option>
+                    <option value="">B-</option>
+                    <option value="">B+</option>
+                    <option value="">AB-</option>
+                    <option value="">AB+</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label for="email">Talla(Mts)</label>
+                  <input type="email" class="form-control" id="email" placeholder="1.82">
+                  <div class="invalid-feedback">
+                    Porfavor ingresé un correo electronico valido
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label for="email">Peso(Kgs)</label>
+                  <input type="email" class="form-control" id="email" placeholder="69">
+                  <div class="invalid-feedback">
+                    Porfavor ingresé un correo electronico valido
+                  </div>
+                </div>               
+              </div>
+              <!-- <div class="mb-3">
+                <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <div class="invalid-feedback">
+                  Porfavor ingresé un correo electronico valido
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                   <label for="username">Teléfono</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      </div>
+                      <input type="text" class="form-control" id="username" placeholder="(612)-18-32-437" required>
+                      <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                   <label for="username">Correo Electronico</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                      </div>
+                      <input type="text" class="form-control" id="username" placeholder="sysdental@abc.com" required>
+                      <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
+                      </div>
+                    </div>
+                </div>
+                
+              </div>
+            
+              <div class="mb-3">
+                <label for="address">Dirección</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <div class="invalid-feedback">
+                  Porfavor ingresé una dirección
+                </div>
+              </div>
+              <div class="row">
+                <!-- <div class="col-md-5 mb-3">
+                  <label for="country">Tipo S*</label>
+                  <select class="custom-select d-block w-100" id="country" required>
+                    <option value="">O-</option>
+                    <option value="">O+</option>
+                    <option value="">A-</option>
+                    <option value="">A+</option>
+                    <option value="">B-</option>
+                    <option value="">B+</option>
+                    <option value="">AB-</option>
+                    <option value="">AB+</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div> -->
+                <div class="col-md-4 mb-3">
+                  <label for="state">Estado</label>
+                  <select class="custom-select d-block w-100" id="state" required>
+                    <option value="">Examinar...</option>
+                    <option></option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please provide a valid state.
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="zip">Codigo Postal</label>
+                  <input type="text" class="form-control" id="zip" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="same-address">
+                <label class="custom-control-label" for="same-address">Tiene alguna alergía?</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="save-info">
+                <label class="custom-control-label" for="save-info">Esta tomando medicamento actualmente?</label>
+              </div>
+                     
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
+            </form>
+                    </div>
+                  </div>
+          </div>
+       </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cl</button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Cerrar</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><i class="fas fa-tooth"></i> Consultorio RH</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <span class="navbar-toggler-icon"></span> -->
+          <span class="icon-bar top-bar"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Acerca de Mí</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#works">Trabajos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Especialidades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#gallery-c">Galeria</a>
+            </li>
+            <li class="nav-item"> 
+                <a  href="#" target="_blank"><i class="fab fa-twitter fanav"></i></a>
+                <a  href="https://www.instagram.com/araceliroj/" target="_blank"><i class="fab fa-instagram fanav"></i></a>
+                <a  href="https://www.facebook.com/araceli.rojano" target="_blank"><i class="fab fa-facebook fanav"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#directions"><i class="fas fa-map-marker-alt fanav"></i> Mapa</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Welcome Text -->
+    <header class="bg-primary text-white welcome-text">
+      <div class="fondo-h">
+        <div class="container text-center">
+          <img src="https://images.vexels.com/media/users/3/128087/isolated/preview/801d56ffd442e320d11cb6167df9f5cd-diente-humano-icono-plana-by-vexels.png" alt="" width="150" height="150">
+          <h1>Consultorio Dental</h1>
+          <hr>
+          <h3>Dra. Alejandra Araceli Rojano Higuera</h3>
+          <p class="lead">Universidad de Mexicali, Baja California Norte</p>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-lg">Citas</button>
+        </div>
+      </div>
+    </header>
+    
+    <section id="about">
+      <div class="parallax-window-about" data-parallax="scroll" data-image-src="resources/images/background1.jpg">
+        <div class="container">
+          <div class="row">
+            <div class="wow bounce col-lg-8 mx-auto" data-wow-delay='.7s'>
+              <h2>Sobre mí</h2>
+              <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features.</p>
+              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui est culpa maxime ipsam sed veritatis distinctio quos, saepe, quis exercitationem nisi nesciunt, expedita vel dolorem, odio. Officiis iusto repudiandae sapiente?</p>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </section>
+
+    <section id="services" class="bg-light">
+      <div class="container">
+        <!-- Team Members Row -->
+      <img src="resources/images/Sys-Rojano.png" alt="Rojano Higuera" id="service-r" class="img-fluid">
+      <div class="row wow jackInTheBox" data-wow-delay='.7s'>
+        <div class=" col-lg-12">
+          <h2 class="my-4">Especialidades</h2>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+          <!-- <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt=""> -->
+          <i class="fas fa-heartbeat fah"></i>
+          <h3>Cirugía Oral
+            <small>$5,000.00</small>
+          </h3>
+          <p>Extracciones dentarias y cirugía de la boca.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <!-- <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt=""> -->
+          <i class="fas fa-teeth fah"></i>
+          <h3>Odontología Preventiva
+            <small>$3,000.00</small>
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <!-- <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt=""> -->
+          <i class="fas fa-teeth-open fah"></i>
+          <h3>Endodoncia
+            <small>$8,000.00</small>
+          </h3>
+          <p>Tratamiento de las raíces dentarias.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <!-- <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt=""> -->
+          <i class="fas fa-screwdriver fah"></i>
+          <h3>Periodoncia
+            <small>$4,000.00</small>
+          </h3>
+          <p>Tratamiento de la patología de las encías y tejidos de soporte dentario.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <!-- <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt=""> -->
+          <i class="fas fa-tooth fah"></i>
+          <h3>Prótesis dental
+            <small>$6,000.00</small>
+          </h3>
+          <p>Sustitución de piezas dentarias mediante prótesis removible y fija sobre otros dientes o sobre implantes.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <!-- <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt=""> -->
+          <i class="far fa-laugh-beam fah"></i>
+          <h3>Odontología Infantil
+            <small>$2,000.00</small>
+          </h3>
+          <p>Tratamiento odontológico general en niños.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+      <section id="gallery-c">
+      <div class="container">
+        <h1 class="text-center text-lg-left">Recuerdos</h1>
+        <div class="row row-galery text-center text-lg-left wow rollIn">
+        <div class="column column-galery content-image">
+          <a href="resources/images/photo1.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo1.jpg" alt="">
+          </a>
+          <a href="resources/images/photo2.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo2.jpg" alt="">
+          </a>
+        </div>
+        <div class="column column-galery content-image">
+          <a href="resources/images/photo3.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo3.jpg" alt="">
+          </a>
+          <a href="resources/images/photo4.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo4.jpg" alt="">
+          </a>
+        </div>
+        <div class="column column-galery content-image">
+           <a href="resources/images/photo5.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo5.jpg" alt="">
+          </a>
+          <a href="resources/images/photo10.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo10.jpg" alt="">
+          </a>
+        </div>
+        <div class="column column-galery content-image">
+            <a href="resources/images/photo7.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo7.jpg" alt="">
+          </a>
+          <a href="resources/images/photo8.jpg" data-lightbox="mygallery">
+            <img class="img-fluid" src="resources/images/photo8.jpg" alt="">
+          </a>
+        </div>
+      </div>
+      </div>
+    </section>
+    
+    <!-- <div class="shadow embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/q0aJNodUyb0?rel=0" allowfullscreen></iframe>
+    </div>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=jjaq.1994%40gmail.com&amp;color=%2329527A&amp;ctz=America%2FMazatlan"></iframe>  
+    </div> -->
+    <!-- Footer -->
+    <footer class="py-5 bg-dark" id="directions">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-xs-12 directions">
+            <h4>Horario:</h4>
+            <span>Lunes - Viernes: 9:00am - 7:00pm</span><br>
+            <span>Sabado: 10:00am - 6:00pm</span><br>
+            <span>Domingo: 12:00pm - 4:00pm</span>
+            
+            <h4>Dirección:</h4>
+            <span><strong>Consultorio Dental RH</strong></span><br>
+            <span>Núm. 1, Las Garzas, 23079 La Paz, B.C.S.</span><br>
+            <h4>Telefonos:</h4>
+            <span>WhatsApp: </span><a href="https://api.whatsapp.com/send?phone=526121026678&text=Hola!" target="_blank"><i class="fab fa-whatsapp fa-whatsapp-footer"></i></a><br>
+            <span>Oficina: </span><a href="tel:1246375"><i class="fas fa-phone-volume"></i> 12-4-63-75</a>
+
+          </div>
+          <div class="col-lg-8 col-md-12 col-xs-12">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.187800901144!2d-110.33017938454681!3d24.13004198440362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86afd3328a92c32d%3A0xddbfe14bf5f0d83!2sLas+Margaritas%2C+23079+La+Paz%2C+B.C.S.!5e0!3m2!1ses!2smx!4v1539786635549" allowfullscreen></iframe>
+          </div>
+        </div>
+        <p class="text-center text-white copyright">Copyright &copy; SysDental Bifrost4® 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+    
+    <!-- LightBox Script -->
+    <script src="js/lightbox-plus-jquery.min.js"></script>
+    
+    <!-- Parallax -->
+    <script src="js/parallax.min.js"></script>
+    
+    <!-- WoW -->
+    <script src="js/wow.min.js"></script>
+  
+    <script>
+      // Parallax
+      lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+      });
+
+      $('.parallax-window-about').parallax({ speed: 0.4 });
+
+      // WOW Script
+      new WOW().init();
+    </script>
+  </body>
+
+</html>
