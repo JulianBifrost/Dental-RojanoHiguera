@@ -364,12 +364,22 @@ html::-webkit-scrollbar-thumb {
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.9);
 }
 #services .container .row .content-desc {
-  color: white;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.08);
-  padding: 10px;
+    color: white;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(37 56 82 / 45%);
+    padding: 10px 20px;
+    height: 100%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+#services .content-service{
+    display: flex;
+    flex-direction: column;
+}
+  
 #works {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(15%, #fbfbfb), color-stop(300%, transparent)), url(../resources/images/mosaic-background.jpg);
   background-image: -webkit-linear-gradient(bottom, #fbfbfb 15%, transparent 300%), url(../resources/images/mosaic-background.jpg);
