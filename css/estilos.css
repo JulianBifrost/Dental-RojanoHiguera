@@ -379,7 +379,17 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
 }
-  
+#services .price-text{
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+    background-color: palevioletred;
+    display: flex;
+    margin-bottom: 0;
+    border-top-right-radius: 20px;
+    box-shadow: -5px 5px 0px 0px rgb(255 255 255);
+}
+
 #works {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(15%, #fbfbfb), color-stop(300%, transparent)), url(../resources/images/mosaic-background.jpg);
   background-image: -webkit-linear-gradient(bottom, #fbfbfb 15%, transparent 300%), url(../resources/images/mosaic-background.jpg);
