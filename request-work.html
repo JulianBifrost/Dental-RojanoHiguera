@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Queue of Work Requests</title>
+  <style>
+    /* Estilo para resaltar el primer elemento de la lista */
+    #queue tbody tr:first-child {
+      background-color: yellow;
+      font-size: 2em;
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- CSS de Bootstrap 5 -->
+
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <h1 class="text-center">Queue of Work Requests</h1>
+  <div class="container">
+	  <div class="row">
+	  		<!-- <label for="name-select">Nombre:</label> -->
+			<select class="form-select" id="name-select">
+				<option value="Aaron">Aaron</option>
+				<option value="Adrian">Adrian</option>
+				<option value="Carlos">Carlos</option>
+				<option value="Benjamin">Benjamin</option>
+				<option value="Cresencio">Cresencio</option>
+				<option value="Fernando">Fernando</option>
+				<option value="Julian">Julian</option>
+				<option value="Oswaldo">Oswaldo</option>
+				<option value="Rafael">Rafael</option>
+				<option value="Ricardo">Ricardo</option>
+				<option value="Topitzin">Topitzin</option>
+				<option value="Roberto">Roberto</option>
+			</select>
+			<button class="btn btn-primary block mx-auto w-50 mt-3" id="request-work">Request Work</button>
+	  		<div class="table-responsive">
+	  			<table class="table" id="queue">
+	  				<thead>
+	  					<tr>
+	  						<th>Name</th>
+	  						<th>Date</th>
+	  						<th>Schedule</th>
+	  						<th></th>
+	  					</tr>
+	  				</thead>
+	  				<tbody></tbody>
+	  			</table>
+	  		</div>
+	  		
+	  	</div>
+  </div>
+  
+  <script>
+
+$(document).ready(function() {
+
+  // Obtener la referencia al botón de solicitud de trabajo
+  const requestButton = $('#request-work');
+  // Obtener la referencia a la tabla de solicitudes
+  const queueTable = $('#queue');
+  const queueBody = queueTable.find('tbody');
+  
+  // Función para agregar una solicitud a la cola
+  function addRequest() {
+  	const name = $("#name-select").val();
+
+    // Obtener la fecha y hora actual en formato corto
+    const now = new Date().toLocaleDateString();
+    const schedule = new Date().toLocaleTimeString();
+    // Crear una fila de tabla con la fecha y hora actual y un botón de eliminar
+    const row = $('<tr>');
+    const nameCell = $('<td>').text(name);
+    const dateCell = $('<td>').text(now);
+    const scheduleCell = $('<td>').text(schedule);
+    const deleteButton = $('<button>').text('X');
+    deleteButton.addClass("btn btn-primary");
+    const deleteCell = $('<td>').append(deleteButton);
+    row.append(nameCell, dateCell, scheduleCell, deleteCell);
+    queueBody.append(row);
+    
+    // Agregar un controlador de eventos al botón de eliminar para eliminar la solicitud de la tabla y del localStorage
+    deleteButton.on('click', function() {
+      row.remove();
+      const requests = JSON.parse(localStorage.getItem('work-requests'));
+      requests.splice(requests.findIndex(request => request.schedule === schedule), 1);
+      localStorage.setItem('work-requests', JSON.stringify(requests));
+    });
+    
+    // Obtener la lista de solicitudes de trabajo existente del localStorage
+    const requests = JSON.parse(localStorage.getItem('work-requests')) || [];
+    // Agregar la nueva solicitud a la lista existente
+    requests.push({name: name, date: now, schedule: schedule });
+    // Guardar la lista actualizada en el localStorage
+    localStorage.setItem('work-requests', JSON.stringify(requests));
+      
+  }
+  
+  // Agregar un controlador de eventos al botón de solicitud de trabajo
+  requestButton.on('click', addRequest);
+  
+  // Al cargar la página, obtener la lista de solicitudes de trabajo existente del localStorage y mostrarla en la tabla de solicitudes
+  const requests = JSON.parse(localStorage.getItem('work-requests')) || [];
+  requests.forEach(request => {
+    const row = $('<tr>');
+    const nameCell = $('<td>').text(request.name);
+    const dateCell = $('<td>').text(request.date);
+    const scheduleCell = $('<td>').text(request.schedule);
+    const deleteButton = $('<button>').text('X');
+    deleteButton.addClass("btn btn-primary");
+    const deleteCell = $('<td>').append(deleteButton);
+    row.append(nameCell, dateCell, scheduleCell, deleteCell);
+    queueBody.append(row);
+    
+    // Agregar un controlador de eventos al botón de eliminar para eliminar la solicitud de la tabla y del localStorage
+    deleteButton.on('click', function() {
+      row.remove();
+      requests.splice(requests.findIndex(item => item.schedule === request.schedule), 1);
+      localStorage.setItem('work-requests', JSON.stringify(requests));
+    });
+  });
+  
+  
+  
+});
+
+
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
